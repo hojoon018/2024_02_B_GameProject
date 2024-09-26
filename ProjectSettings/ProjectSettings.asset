@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 08adf46d307b87946a43c341a39d18aa
+  productGUID: bd3d92858138aea40957f675f52c2491
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: URPProject
+  productName: 2024_02_B_GameProject(2)
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -837,14 +837,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: URPProject
+  metroPackageName: 2024_02_B_GameProject(2)
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: URPProject
+  metroApplicationDescription: 2024_02_B_GameProject(2)
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -914,11 +914,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 531199c4-80fe-403b-b09b-c72ac7802715
+  cloudProjectId: 1ca4419c-9ee6-4346-8bb0-5aa9c803b23e
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: URPProject
-  organizationId: hojoon017
+  projectName: 2024_02_B_GameProject(2)
+  organizationId: notcute
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

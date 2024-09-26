@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             ICommand moveRight = new MoveCommand(transform, Vector3.right);
             CommandManager.ExecuteCommand(moveRight);
@@ -25,3 +25,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
+

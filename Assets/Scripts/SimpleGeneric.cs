@@ -12,8 +12,9 @@ public class SimpleGeneric : MonoBehaviour
         PrintValue(3.14f);
     }
 
-    void PrintValue<T>(t value)
+    void PrintValue<T>(T value)
     {
-        Debug.Log($"Value : {value}, Type : {typeof(1)}");
+        Debug.Log($"Value : {value}, Type : {typeof(T)}");
     }
 }
+

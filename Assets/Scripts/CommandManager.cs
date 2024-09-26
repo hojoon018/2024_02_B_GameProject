@@ -6,7 +6,7 @@ public interface ICommand
 {
     void Execute();
 
-    void Undo():
+    void Undo();
 }
 
 public class MoveCommand : ICommand
@@ -20,7 +20,7 @@ public class MoveCommand : ICommand
         this.displacement = displacement;
     }
 
-    public void Execute () { ObjectToMove.position += displacement; }
+    public void Execute() { ObjectToMove.position += displacement; }
 
     public void Undo() { ObjectToMove.position -= displacement; }
 }
@@ -37,7 +37,7 @@ public class CommandManager : MonoBehaviour
 
     public void UndoLastCommand()
     {
-        if(commandHistory.Count > 0)
+        if (commandHistory.Count > 0)
         {
             ICommand lastcommand = commandHistory.Pop();
             lastcommand.Undo();
