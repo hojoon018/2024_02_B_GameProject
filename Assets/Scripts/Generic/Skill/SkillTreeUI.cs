@@ -24,14 +24,14 @@ public class SkillTreeUI : MonoBehaviour
     void InitalizeSkillTree()
     {
         skillTree = new SkillTree();
-
+        
         skillTree.AddNode(new SkillNode("Fireball1", "Fireball1",
             new Skill<ISkillTarget, DamageEffect>("Fireball1", new DamageEffect(20)),
-            new Vector2(0, 0), "Fireball", 1));
+            new Vector2(0,0), "Fireball" , 1));
 
         skillTree.AddNode(new SkillNode("Fireball2", "Fireball2",
            new Skill<ISkillTarget, DamageEffect>("Fireball2", new DamageEffect(30)),
-           new Vector2(0, 1), "Fireball", 2, new List<string> { "Fireball1" }));
+           new Vector2(0, 1), "Fireball", 2 , new List<string> { "Fireball1" }));
 
         skillTree.AddNode(new SkillNode("Fireball3", "Fireball3",
            new Skill<ISkillTarget, DamageEffect>("Fireball3", new DamageEffect(40)),
@@ -56,7 +56,7 @@ public class SkillTreeUI : MonoBehaviour
 
     void CreateSkillTreeUI()
     {
-        foreach (var node in skillTree.Nodes)
+        foreach (var node in skillTree.Nodes) 
         {
             CreateSkillNodeUI(node);
         }
@@ -97,9 +97,9 @@ public class SkillTreeUI : MonoBehaviour
                 Debug.Log("관련 연계 스킬이 있어서 해제가 안됩니다.");
             }
         }
-        else if (totalSkillPoint > 0 && CanUnlockSkill(node))
+        else if(totalSkillPoint > 0 && CanUnlockSkill(node))
         {
-            if (skillTree.UnlockSkill(skillId))
+            if(skillTree.UnlockSkill(skillId))
             {
                 totalSkillPoint--;
                 UpdateSkillPointsUI();
@@ -124,11 +124,11 @@ public class SkillTreeUI : MonoBehaviour
     {
         foreach (var requiredSkillId in node.RequiredSkillds)
         {
-            if (!skillTree.IsSkillUnlock(requiredSkillId))
+            if(!skillTree.IsSkillUnlock(requiredSkillId))
             {
                 return false;
             }
-        }
+        }        
         return true;
     }
 
@@ -139,9 +139,9 @@ public class SkillTreeUI : MonoBehaviour
 
     void UpdateConnectedSkills(string skillId)
     {
-        foreach (var node in skillTree.Nodes)
+        foreach(var node in skillTree.Nodes)
         {
-            if (node.RequiredSkillds.Contains(skillId))
+            if(node.RequiredSkillds.Contains(skillId))
             {
                 UpdateNodeUI(node);
             }

@@ -8,13 +8,13 @@ public interface ISkillTarget
     void ApplyEffect(ISkillEffect effect);
 }
 
-//스킬 효과 인터페이스
+//스킬 효과 인터페이스 
 public interface ISkillEffect
 {
     void Apply(ISkillTarget target);
 }
 
-//구체적인 효과 클래스
+//구체적인 효과 클래스 
 public class DamageEffect : ISkillEffect
 {
     public int Damage { get; private set; }
@@ -31,14 +31,13 @@ public class DamageEffect : ISkillEffect
             playertarget.Health -= Damage;
             Debug.Log($"Player took {Damage} damage. Remaining health : {playertarget.Health}");
         }
-        else if (target is EnemyTarget enemytarget)
+        else if (target is EnemyTarget enemyTarget)
         {
-            enemytarget.Health -= Damage;
-            Debug.Log($"Enemy took {Damage} damage. Remaining health : {enemytarget.Health}");
+            enemyTarget.Health -= Damage;
+            Debug.Log($"Enemy took {Damage} damage. Remaining health : {enemyTarget.Health}");
         }
     }
 }
-
 
 public class HealEffect : ISkillEffect
 {
@@ -56,27 +55,27 @@ public class HealEffect : ISkillEffect
             playertarget.Health += HealAmount;
             Debug.Log($"Player healed for {HealAmount}. Remaining health : {playertarget.Health}");
         }
-        else if (target is EnemyTarget enemytarget)
+        else if (target is EnemyTarget enemyTarget)
         {
-            enemytarget.Health += HealAmount;
-            Debug.Log($"Enemy healed for {HealAmount}. Remaining health : {enemytarget.Health}");
+            enemyTarget.Health += HealAmount;
+            Debug.Log($"Enemy healed for {HealAmount}. Remaining health : {enemyTarget.Health}");
         }
     }
 }
 
-//제네릭 스킬 클래스
+//제네릭 스킬 클래스 
 public class Skill<TTarget, TEffect>
     where TTarget : ISkillTarget
     where TEffect : ISkillEffect
 {
-    public string Name { get; private set; }
 
+    public string Name { get; private set; }
     public TEffect Effect { get; private set; }
 
     public Skill(string name, TEffect effect)
     {
         Name = name;
-        Effect = effect;
+        Effect = effect;    
     }
 
     public void Use(TTarget target)
@@ -84,4 +83,5 @@ public class Skill<TTarget, TEffect>
         Debug.Log($"Using skill: {Name}");
         target.ApplyEffect( Effect );
     }
+
 }

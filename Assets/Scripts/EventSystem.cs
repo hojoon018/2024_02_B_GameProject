@@ -10,6 +10,7 @@ public class EventSystem : MonoBehaviour
 
     private int score = 0;
 
+    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -19,7 +20,7 @@ public class EventSystem : MonoBehaviour
         }
         if (score >= 100)
         {
-            OnGameOver?.Invoke();                                   //게임 오버시 호출
+            OnGameOver?.Invoke();                                   //게임 오버시 호출 
         }
     }
 }

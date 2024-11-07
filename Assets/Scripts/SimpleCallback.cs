@@ -5,16 +5,14 @@ using UnityEngine;
 
 public class SimpleCallback : MonoBehaviour
 {
-
-    private Action greetingAction;              //액션 선언
-
+    private Action greetingAction;              //액션 선언 
+  
     void Start()
     {
         greetingAction = SayHello;              //Action 함수 할당
         PerformGreeting(greetingAction);
     }
 
-    // Update is called once per frame
     void SayHello()
     {
         Debug.Log("Hello, world!");
@@ -23,5 +21,5 @@ public class SimpleCallback : MonoBehaviour
     void PerformGreeting(Action greetingFunc)
     {
         greetingFunc?.Invoke();
-    }
+    }  
 }

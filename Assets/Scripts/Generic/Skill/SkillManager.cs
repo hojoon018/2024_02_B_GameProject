@@ -13,6 +13,7 @@ public class SkillManager : MonoBehaviour
     public Skill<PlayerTarget, HealEffect> healSpell;
     public Skill<ISkillTarget, DamageEffect> multiTargetSkill;
 
+    // Start is called before the first frame update
     void Start()
     {
         fireball = new Skill<ISkillTarget, DamageEffect>("Fireball", new DamageEffect(20));
@@ -20,9 +21,10 @@ public class SkillManager : MonoBehaviour
         multiTargetSkill = new Skill<ISkillTarget, DamageEffect>("AoE Attack", new DamageEffect(10));
     }
 
+    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             fireball.Use(enemy);
         }
@@ -30,12 +32,12 @@ public class SkillManager : MonoBehaviour
         {
             healSpell.Use(player);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if(Input.GetKeyDown(KeyCode.Alpha3))
         {
             foreach(var target in enemyTargets)
             {
                 multiTargetSkill.Use(target);
-            }
+            }            
         }
     }
 }

@@ -22,5 +22,5 @@ namespace MyGame.QuestSystem
 
         public string GetDescription() => $"{amount} {itemId}";
     }
-}
 
+}

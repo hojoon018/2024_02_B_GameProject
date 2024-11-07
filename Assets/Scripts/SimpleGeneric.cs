@@ -8,7 +8,7 @@ public class SimpleGeneric : MonoBehaviour
     void Start()
     {
         PrintValue(42);
-        PrintValue("Hello, Generice!");
+        PrintValue("Hello, Generics!");
         PrintValue(3.14f);
     }
 
@@ -16,5 +16,5 @@ public class SimpleGeneric : MonoBehaviour
     {
         Debug.Log($"Value : {value}, Type : {typeof(T)}");
     }
+    
 }
-

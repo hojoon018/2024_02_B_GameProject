@@ -2,52 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SkillNode
 {
     public string Id { get; private set; }
     public string Name { get; private set; }
-
     public object Skill { get; private set; }
     public List<string> RequiredSkillds { get; private set; }
     public bool isUnlocked { get; set; }
     public Vector2 Position { get; set; }
-    public string SkillSerires { get; private set; }
+    public string SkillSeries { get; private set; }
     public int SkillLevel { get; private set; }
-    public bool IsMaxLevel { get; set;}
+    public bool IsMaxLevel { get; set; }
 
-    public SkillNode(string id, string name, object skill, Vector2 position, string skillSerires, int skillLevel, List<string> requiredSkillds = null)
+    public SkillNode(string id, string name, object skill , Vector2 position , string skillSeries, int skillLevel, List<string> requiredSkillIds = null)
     {
         Id = id;
         Name = name;
         Skill = skill;
         Position = position;
-        SkillSerires = skillSerires;
-        RequiredSkillds = requiredSkillds ?? new List<string>();
+        SkillSeries = skillSeries;
+        RequiredSkillds = requiredSkillIds ?? new List<string>();
         isUnlocked = false;
     }
-
 }
 
-public class SkillTree              //특성 트리 클래스
+
+public class SkillTree          //특성 트리 클래스 
 {
-    public List<SkillNode> Nodes { get; private set; } = new List<SkillNode>();         //관리할 노드 List
+    public List<SkillNode> Nodes { get; private set; } = new List<SkillNode>();     //관리할 노드 List
     private Dictionary<string, SkillNode> nodeDictionary;
 
-    public SkillTree()          //생성자
+    public SkillTree()      //생성자 
     {
         Nodes = new List<SkillNode>();
         nodeDictionary = new Dictionary<string, SkillNode>();
     }
 
-    public void AddNode(SkillNode node)         //노드 추가 메서드
+    public void AddNode(SkillNode node)     //노드 추가 메서드
     {
         Nodes.Add(node);
-        nodeDictionary[node.Id] = node;
+        nodeDictionary[node.Id] = node; 
     }
 
-    public bool UnlockSkill(string skillId)             //스킬 잠금 해제 메서드
+    public bool UnlockSkill(string skillId)                     //스킬 잠금 해제 메서드
     {
-        if(nodeDictionary.TryGetValue(skillId, out SkillNode node))
+        if (nodeDictionary.TryGetValue(skillId, out SkillNode node))
         {
             if (node.isUnlocked) return false;
 
@@ -59,22 +59,22 @@ public class SkillTree              //특성 트리 클래스
                 }
             }
             node.isUnlocked = true;
-            return true;
+            return true;    
         }
         return false;
     }
 
     public bool LockSkill(string skillId)
     {
-        if(nodeDictionary.TryGetValue(skillId, out SkillNode node))
+        if (nodeDictionary.TryGetValue(skillId, out SkillNode node))
         {
-            if (!node.isUnlocked) return false;
+            if(!node.isUnlocked) return false;
 
-            foreach(var otherNode in Nodes)     //이 스킬에 의존하는 다른 스킬이 있는지 확인
+            foreach(var otherNode in Nodes) //이 스킬에 의존하는 다른 스킬이 있는지 확인
             {
-                if(otherNode.isUnlocked && otherNode.RequiredSkillds.Contains(skillId))
+                if (otherNode.isUnlocked && otherNode.RequiredSkillds.Contains(skillId))
                 {
-                    return false;           //의존하는 스킬이 있으면 잠금 불가능
+                    return false;               //의존하는 스킬이 있으면 잠금 불가능 
                 }
             }
 
@@ -93,7 +93,7 @@ public class SkillTree              //특성 트리 클래스
     public SkillNode GetNode(string skillId)
     {
         nodeDictionary.TryGetValue(skillId, out SkillNode node);
-        return node;
+        return node;    
     }
 
     public List<SkillNode> GetAllNodes()
